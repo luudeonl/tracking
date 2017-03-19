@@ -1,0 +1,16 @@
+<?php
+# Try running this locally.
+# Include the Autoloader (see "Libraries" for install instructions)
+require 'vendor/autoload.php';
+use Mailgun\Mailgun;
+
+# Instantiate the client.
+$mgClient = new Mailgun('key-3084b270c44ce8f29b597c4521615efa');
+$domain = "sandbox656dc28c4c6d447e9be30ca9c2fb6b78.mailgun.org";
+
+# Make the call to the client.
+$result = $mgClient->sendMessage("$domain",
+  array('from'    => 'Mail Track Alert <alert@mailtrack.ml>',
+        'to'      => 'r00tvn <ngcbao98@gmail.com>',
+        'subject' => 'Mail Track Alert !',
+        'html'    => '<img src="https://localhost/tracking/sendmail.gif" width="10" height="1" hidden>'));
